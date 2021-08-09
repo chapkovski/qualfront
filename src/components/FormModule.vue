@@ -120,13 +120,13 @@ export default {
       this.endTime = new Date();
       this.timeSpent = differenceInSeconds(this.endTime, this.startTime);
       this.submittable = false;
-      const ddbUrl = "something else to post qual data";
+      const ddbUrl = "https://t7oak2rx45.execute-api.us-east-1.amazonaws.com/Prod/submit_qual_hit";
       await axios.post(ddbUrl, {
         assignmentId: this.assignmentId,
         hitId: this.hitId,
         workerId: this.workerId,
         sandbox: this.sandbox,
-        answers: items,
+        answers: this.items,
         timeSpent: this.timeSpent,
         startTime: this.startTime,
         endTime: this.endTime,
